@@ -26,7 +26,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </Head>
       <main className="max-w-3xl mx-auto min-h-screen px-6 sm:px-8 my-6 tracking-tighter">
         <header className="flex mb-10">
-          <Link href="/">
+          <a href="http://mocaii.cn">
             <Image
               src={require("@/assets/images/cat.png")}
               width={100}
@@ -34,7 +34,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               alt="Picture of the author"
               className=""
             />
-          </Link>
+          </a>
 
           <h1 className="ml-5 font-bold text-left text-4xl md:text-5xl tracking-tighter py-6 overflow-hidden">
             {`Hi, I'm mocai`}
