@@ -37,7 +37,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </Link>
 
           <h1 className="ml-5 font-bold text-left text-4xl md:text-5xl tracking-tighter py-6 overflow-hidden">
-            Hi, I'm mocai
+            {`Hi, I'm mocai`}
           </h1>
         </header>
         {children}
