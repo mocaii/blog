@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "tag": "Javascript",
+    "tag": "JavaScript",
     "fileName": "8种跨域",
     "title": "8种跨域",
     "description": "由于浏览器同源策略的限制，浏览器不能直接访问第三方资源，这里提供8种解决方法。"
@@ -41,12 +41,18 @@
     "title": "webpack",
     "description": "一个前端工程化工具，用于打包、构建和优化前端项目。。"
   },
-
   {
     "id": 7,
     "tag": "网络协议",
     "fileName": "WebSocket",
     "title": "WebSocket",
     "description": "WebSocket 是一种在`单个TCP连接`上进行`全双工`通信的协议"
+  },
+  {
+    "id": 8,
+    "tag": "读书笔记",
+    "fileName": "一本书读懂数字经济",
+    "title": "一本书读懂数字经济",
+    "description": ""
   }
 ]

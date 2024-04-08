@@ -1,0 +1,18 @@
+import data from "@/posts/data.json";
+// "id": 5,
+//     "tag": "Vue",
+//     "fileName": "Vue3",
+//     "title": "Vue3",
+//     "description": ""
+export interface PostProps {
+  id: number;
+  tag: string;
+  fileName: string;
+  title: string;
+  description: string;
+}
+
+export const getPostListByTag = (tag: string) => {
+  const list = data.filter((item: PostProps) => item.tag === tag);
+  return list;
+};

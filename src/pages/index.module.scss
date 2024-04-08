@@ -1,0 +1,16 @@
+.home {
+  nav {
+    a {
+      border-width: 1px;
+      padding: 5px;
+      margin-right: 15px;
+      background-repeat: no-repeat;
+      background-size: 100% 1.5px;
+      background-position: 0 100%;
+      background-image: linear-gradient(to right, rgb(51 154 240), rgb(51 154 240));
+    }
+  }
+  a:hover {
+    color: rgb(51 154 240);
+  }
+}
