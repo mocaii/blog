@@ -54,5 +54,12 @@
     "fileName": "一本书读懂数字经济",
     "title": "一本书读懂数字经济",
     "description": ""
+  },
+  {
+    "id": 9,
+    "tag": "部署",
+    "fileName": "轻松拿捏，next.js结合vercel，快速开发部署个人博客",
+    "title": "轻松拿捏，next.js结合vercel，快速开发部署个人博客",
+    "description": ""
   }
 ]

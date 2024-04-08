@@ -16,3 +16,8 @@ export const getPostListByTag = (tag: string) => {
   const list = data.filter((item: PostProps) => item.tag === tag);
   return list;
 };
+
+export const getTags = () => {
+  const tags = data.map((item: PostProps) => item.tag);
+  return Array.from(new Set(tags));
+};

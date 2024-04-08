@@ -3,8 +3,9 @@ import data from "@/posts/data.json";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import PostList from "@/components/PostList";
+import { getTags } from "@/utils/tool";
 
-const navlist = ["JavaScript", "CSS", "HTML", "React", "Vue", "Webpack", "网络协议", "读书笔记"];
+const navlist = getTags();
 
 export default function Home() {
   console.log(data);
