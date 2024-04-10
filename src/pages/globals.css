@@ -40,3 +40,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.markdown-body li {
+  list-style: initial;
+}

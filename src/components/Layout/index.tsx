@@ -52,7 +52,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <header className="flex justify-between py-5 items-center ">
           <nav className={styles.nav}>
             <ul className="flex items-center">
-              <li className="mr-8">
+              <li>
                 <Link href="/" className="flex items-center">
                   <Image
                     src={require("@/assets/images/favicon.png")}
@@ -64,8 +64,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   Home
                 </Link>
               </li>
+              <li className="mx-8">
+                <a href="http://mocaii.cn/" target="_blank">
+                  ·灵感漫游记
+                </a>
+              </li>
               <li>
-                <a href="http://mocaii.cn/">·灵感漫游记</a>
+                <a href="https://mocaii.github.io/" target="_blank">
+                  ·旧博客
+                </a>
               </li>
             </ul>
           </nav>
