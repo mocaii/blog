@@ -5,7 +5,6 @@ import data from "@/posts/data.json";
 //     "title": "Vue3",
 //     "description": ""
 export interface PostProps {
-  id: number;
   tag: string;
   fileName: string;
   title: string;
