@@ -27,7 +27,7 @@ export async function getServerSideProps(context: any) {
 
 export default function Post({ markdownContent }: any) {
   return (
-    <div className=" blog-post prose max-w-none prose-newspapermax-w-3xl mx-auto min-h-screen my-6 tracking-tighter bg-white dark:bg-black">
+    <div className="blog-post prose max-w-none prose-newspapermax-w-3xl mx-auto min-h-screen tracking-tighter bg-white dark:bg-black">
       <MarkdownRenderer markdown={markdownContent} />
     </div>
   );

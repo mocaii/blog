@@ -6,9 +6,9 @@ import PostList from "@/components/PostList";
 import { getTags } from "@/utils/tool";
 
 const navlist = getTags();
+const list = data.slice(0, 10);
 
 export default function Home() {
-  console.log(data);
   return (
     <main className={styles.home}>
       <div className="flex pb-5 mb-5 border-b">
@@ -34,7 +34,7 @@ export default function Home() {
           </Link>
         ))}
       </nav>
-      <PostList data={data} />
+      <PostList data={list} />
     </main>
   );
 }

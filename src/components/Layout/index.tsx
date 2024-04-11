@@ -48,7 +48,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {/* 其他元数据 */}
       </Head>
 
-      <main className="max-w-3xl mx-auto min-h-screen px-4 sm:px-8  tracking-tighter text-black dark:text-white">
+      <main className="max-w-3xl mx-auto min-h-screen px-4 py-6 sm:px-8  tracking-tighter text-black dark:text-white">
         <header className="flex justify-between py-5 items-center ">
           <nav className={styles.nav}>
             <ul className="flex items-center">

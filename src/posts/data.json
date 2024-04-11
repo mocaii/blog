@@ -58,5 +58,23 @@
     "fileName": "浅析主流排序算法",
     "title": "浅析主流排序算法",
     "description": ""
+  },
+  {
+    "tag": "读书笔记",
+    "fileName": "刻意练习：如何从新手到大师",
+    "title": "刻意练习：如何从新手到大师",
+    "description": ""
+  },
+  {
+    "tag": "JavaScript",
+    "fileName": "Javascript基础之Array对象",
+    "title": "Javascript基础之Array对象",
+    "description": ""
+  },
+  {
+    "tag": "JavaScript",
+    "fileName": "一文了解 ES6+ 的新特性",
+    "title": "一文了解 ES6+ 的新特性",
+    "description": ""
   }
 ]
