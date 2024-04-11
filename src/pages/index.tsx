@@ -6,7 +6,6 @@ import PostList from "@/components/PostList";
 import { getTags } from "@/utils/tool";
 
 const navlist = getTags();
-const list = data.slice(0, 10);
 
 export default function Home() {
   return (
@@ -34,7 +33,7 @@ export default function Home() {
           </Link>
         ))}
       </nav>
-      <PostList data={list} />
+      <PostList data={data} />
     </main>
   );
 }
