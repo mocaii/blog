@@ -24,6 +24,12 @@
     "description": "WebSocket 是一种在`单个TCP连接`上进行`全双工`通信的协议"
   },
   {
+    "tag": "性能优化",
+    "fileName": "前端性能优化：图片懒加载",
+    "title": "前端性能优化：图片懒加载",
+    "description": ""
+  },
+  {
     "tag": "HTML",
     "fileName": "探索 HTML5 新特性",
     "title": "探索 HTML5 新特性",
