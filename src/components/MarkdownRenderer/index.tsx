@@ -10,7 +10,9 @@ import { useRouter } from "next/router";
 function MarkdownRenderer({ markdown }: any) {
   return (
     <div className="markdown-body p-5">
-      <Markdown rehypePlugins={[rehypeHighlight]}>{markdown}</Markdown>
+      <Markdown rehypePlugins={[rehypeHighlight]} remarkPlugins={[remarkGfm]}>
+        {markdown}
+      </Markdown>
     </div>
   );
 }

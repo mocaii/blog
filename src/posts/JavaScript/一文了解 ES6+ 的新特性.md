@@ -2,6 +2,8 @@
 
 随着 JavaScript 语言的持续发展和完善，ECMAScript 标准也在不断迭代更新，极大地提升了开发者的编程体验和工作效率。下面就让我们一起来了解一下 ES6+ 的新特性吧。（持续记录）
 
+[点击跳转到“我的锚点”](#ES7)
+
 ## 一、ES6
 
 JavaScript ES6（ECMAScript 2015）是一个重要的版本，它引入了许多新特性，使得 JavaScript 语言更加强大和易于使用。
@@ -546,7 +548,7 @@ proxy.name;
 proxy.age = 30;
 ```
 
-## 二、ES7
+# 二、ES7
 
 ### 1.Array 增强
 
