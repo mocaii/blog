@@ -40,7 +40,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <meta name="description" content={"mocai的个人博"} />
         <link rel="icon" href="/favicon.png" />
         <link href="https://esm.sh/@wooorm/starry-night@3/style/both.css" rel="stylesheet" />
-        <link href="https://esm.sh/github-markdown-css@5/github-markdown.css" rel="stylesheet" />
+        {/* <link href="https://esm.sh/github-markdown-css@5/github-markdown.css" rel="stylesheet" /> */}
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
           rel="stylesheet"

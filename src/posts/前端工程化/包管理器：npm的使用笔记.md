@@ -13,6 +13,7 @@ npm install #安装依赖包
 npm install --save-dev #安装开发依赖包
 npm cache verify #重新计算，磁盘文件是否与 sha1 值匹配，如果不匹配可能删除
 npm cache clean --force #删除磁盘所有缓存文件
+npm install xxx -D #安装开发依赖包，-D是--save-dev的简写
 ```
 
 ### 2. 配置
@@ -31,6 +32,9 @@ npm config set registry https://registry.npmmirror.com/ #设置为中国开发�
 
 1. 注册 npm 账号 https://www.npmjs.com/
 2. 本地通过命令行 `npm login` 登陆
+
+- 由于设置了镜像，登录可能会失败，将源设置会默认`npm config set registry https://registry.npmjs.org/ `
+
 3. 进入到项目目录下（与 package.json 同级），在 package.json 中指定发布文件、文件夹
 
 ```json
@@ -43,7 +47,7 @@ npm config set registry https://registry.npmmirror.com/ #设置为中国开发�
 }
 ```
 
-4. 执行 `npm publish --registry=https://registry.npmjs.org/ `即可发布
+4. 执行`npm version`更新版本， `npm publish --registry=https://registry.npmjs.org/ `发布
 
 **包更新：可使用 npm version 控制版本升级,遵循 Semver 规范**
 
