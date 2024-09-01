@@ -17,6 +17,7 @@
     "title": "CSS属性一行垂直居中",
     "description": ""
   },
+
   {
     "tag": "读书笔记",
     "fileName": "八种常用思考方法",
@@ -82,6 +83,12 @@
     "tag": "数据结构与算法",
     "fileName": "数据结构之二叉树",
     "title": "数据结构之二叉树",
+    "description": ""
+  },
+  {
+    "tag": "云服务",
+    "fileName": "github与jsDelivr实现静态资源CDN托管",
+    "title": "github与jsDelivr实现静态资源CDN托管",
     "description": ""
   },
   {
