@@ -1,8 +1,14 @@
 [
   {
     "tag": "好文收录",
-    "fileName": "收录一些好文",
-    "title": "收录一些好文",
+    "fileName": "文章系列",
+    "title": "文章系列",
+    "description": ""
+  },
+  {
+    "tag": "好文收录",
+    "fileName": "报告系列",
+    "title": "报告系列",
     "description": ""
   },
   {
