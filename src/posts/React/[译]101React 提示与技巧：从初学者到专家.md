@@ -8,7 +8,7 @@
 - 我尝试在大多数示例中使用 Vanilla JS 以保持简单。如果您使用的是 TypeScript，则可以轻松调整代码。
 - 该代码尚未准备好投入生产。请自行决定使用。
 
-## 分类 1：组件组织 🧹
+## 分类 一、组件组织 🧹
 
 ### 1.使用自闭合标签来保持代码紧凑
 
@@ -600,7 +600,7 @@ function App() {
 }
 ```
 
-## 分类 2:有效的设计模式与技术 🛠️
+## 分类 二、有效的设计模式与技术 🛠️
 
 ### 15.利用 `children` 属性进行更清晰的代码编写（并提升性能）
 
@@ -750,4 +750,259 @@ function App() {
 
 💡 提示：您可以使用 [react-error-boundary](https://www.npmjs.com/package/react-error-boundary) 库。
 
-## 分类 3：密钥与引用 🗝️
+## 分类 三、Keys 与 Refs 🗝️
+
+### 20.使用 `crypto.randomUUID` 或 `Math.random` 生成 keys
+
+`map() `调用中的 JSX 元素总是需要 key。
+
+假设你的元素还没有 key。在这种情况下，您可以使用 `crypto.randomUUID`、`Math.random` 或 [uuid](https://www.npmjs.com/package/uuid) 库生成唯一 ID。
+
+> 注意：`crypto.randomUUID` 在旧版浏览器中未定义。
+
+### 21.确保您的列表项 ID 稳定（即它们每次渲染不会更改）
+
+keys/ID 应尽可能稳定。
+否则，React 可能会无用地重新渲染一些组件，或者选择将不再有效，就像下面的例子一样。
+❌ Bad:`electedQuoteId` 每当 `App` 渲染时都会更改，因此永远不会有有效的选择。
+
+```tsx
+function App() {
+  const [quotes, setQuotes] = useState([]);
+  const [selectedQuoteId, setSelectedQuoteId] = useState(undefined);
+
+  // Fetch quotes
+  useEffect(() => {
+    const loadQuotes = () =>
+      fetchQuotes().then((result) => {
+        setQuotes(result);
+      });
+    loadQuotes();
+  }, []);
+
+  // Add ids: this is bad!!! electedQuoteId will change every time the App renders
+  const quotesWithIds = quotes.map((quote) => ({
+    value: quote,
+    id: crypto.randomUUID(),
+  }));
+
+  return (
+    <List
+      items={quotesWithIds}
+      selectedItemId={selectedQuoteId}
+      onSelectItem={setSelectedQuoteId}
+    />
+  );
+}
+```
+
+✅ Good:当我们获取 Quotes 时，将添加 IDs。
+
+```tsx
+function App() {
+  const [quotes, setQuotes] = useState([]);
+  const [selectedQuoteId, setSelectedQuoteId] = useState(undefined);
+
+  // Fetch quotes and save with ID
+  useEffect(() => {
+    const loadQuotes = () =>
+      fetchQuotes().then((result) => {
+        // We add the `ids` as soon as we get the results
+        setQuotes(
+          result.map((quote) => ({
+            value: quote,
+            id: crypto.randomUUID(),
+          }))
+        );
+      });
+    loadQuotes();
+  }, []);
+
+  return <List items={quotes} selectedItemId={selectedQuoteId} onSelectItem={setSelectedQuoteId} />;
+}
+```
+
+### 22.策略性地使用 key 属性来触发组件重新渲染
+
+想要强制组件从头开始重新渲染？只需更改其 key。
+在下面的示例中，我们使用此技巧在切换到新选项卡时重置错误边界。
+[🏖 Sandbox](https://stackblitz.com/edit/using-key-react?file=src%2FApp.tsx)
+
+### 23.将 `ref callback function` 用于监控大小变化和管理多个节点元素等任务。
+
+您知道可以将函数传递给 `ref` 属性而不是 ref 对象吗？
+以下是它的工作原理：
+
+- 当 DOM 节点被添加到屏幕时，React 会以 DOM 节点作为参数调用该函数。
+- 当 DOM 节点被删除时，React 会使用 `null` 调用该函数。
+
+在下面的示例中，我们使用此提示跳过 `useEffect`
+
+❌ Before: 使用 useEffect 聚焦输入
+
+```tsx
+function App() {
+  const ref = useCallback((inputNode) => {
+    inputNode?.focus();
+  }, []);
+
+  return <input ref={ref} type="text" />;
+}
+```
+
+✅ After: 一旦输入可用，我们就会立即关注它。
+
+```tsx
+function App() {
+  const ref = useCallback((inputNode) => {
+    inputNode?.focus();
+  }, []);
+
+  return <input ref={ref} type="text" />;
+}
+```
+
+## 分类 四、组织 React 代码 🧩
+
+### 24.将 React 组件与其资产（例如样式、图像等）放在一起
+
+始终保持每个 React 组件包含相关资源，例如样式和图像。
+
+- 这样可以在不再需要组件时更轻松地删除它们。
+- 它还简化了代码导航，因为您需要的一切都在一个地方。
+  ![image](https://media.dev.to/cdn-cgi/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Faqi13ygqu2hw2myf0u1h.png)
+
+### 25.限制组件文件大小
+
+包含大量组件和导出的大文件可能会令人困惑。
+此外，随着添加更多内容，它们往往会变得更大。
+因此，请以合理的文件大小为目标，并在合理时将组件拆分为单独的文件。
+
+### 26.限制函数组件文件中的 return 语句数量
+
+函数式组件中的多个 `return` 语句使得很难看到组件返回的内容。
+对于我们可以搜索 `render` 词的 class 类组件来说，这不是问题。
+
+一个方便的技巧是尽可能使用不带大括号的箭头函数（VSCode 有一个 action for this 😀）。
+
+❌ Bad: 更难发现组件 return 语句
+
+```tsx
+function Dashboard({ posts, searchTerm, onPostSelect }) {
+  const filteredPosts = posts.filter((post) => {
+    return post.title.includes(searchTerm);
+  });
+  const createPostSelectHandler = (post) => {
+    return () => {
+      onPostSelect(post.id);
+    };
+  };
+  return (
+    <>
+      <h1>Posts</h1>
+      <ul>
+        {filteredPosts.map((post) => {
+          return (
+            <li key={post.id} onClick={createPostSelectHandler(post)}>
+              {post.title}
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}
+```
+
+✅ Good：组件只有一个 return 语句
+
+```tsx
+function Dashboard({ posts, searchTerm, onPostSelect, selectedPostId }) {
+  //使用不带大括号的箭头函数
+  const filteredPosts = posts.filter((post) => post.title.includes(searchTerm));
+  const createPostSelectHandler = (post) => () => {
+    onPostSelect(post.id);
+  };
+  return (
+    <>
+      <h1>Posts</h1>
+      <ul>
+        {filteredPosts.map((post) => (
+          <li
+            key={post.id}
+            onClick={createPostSelectHandler(post)}
+            style={{ color: post.id === selectedPostId ? "red" : "black" }}
+          >
+            {post.title}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+```
+
+### 27.首选命名导出而不是默认导出
+
+我到处都能看到默认导出，这让我很难过 🥲。
+让我们比较一下这两种方法：
+
+```tsx
+/// `Dashboard` is exported as the default component
+export function Dashboard(props) {
+  /// TODO
+}
+
+/// `Dashboard` export is named
+export function Dashboard(props) {
+  /// TODO
+}
+```
+
+我们现在像这样导入组件：
+
+```tsx
+/// Default export
+import Dashboard from "/path/to/Dashboard";
+
+/// Named export
+import { Dashboard } from "/path/to/Dashboard";
+```
+
+以下是默认导出的问题：
+
+- 如果组件已重命名，IDE 不会自动重命名导出。
+
+例如，如果 `Dashboard` 重命名为 `Console` ，我们将有以下内容：
+
+```tsx
+/// In the default export case, the name is not changed
+import Dashboard from "/path/to/Console";
+
+/// In the named export case, the name is changed
+import { Console } from "/path/to/Console";
+```
+
+- 很难查看从具有默认导出的文件中导出的内容。
+
+例如，在命名导入的情况下，一旦我从 `import { } from "/path/to/file"`，当我将光标放在括号内时，我会得到自动补全。
+
+- 默认导出更难重新导出。
+
+例如，如果我想从 `index` 文件重新导出 `Dashboard` 组件，则必须执行以下操作：
+
+```tsx
+export { default as Dashboard } from "/path/to/Dashboard";
+```
+
+对于命名导出，解决方案更直接。
+
+```tsx
+export { Dashboard } from "/path/to/Dashboard";
+```
+
+因此，请默认为 named exports 🙏 。
+
+> 💡 注意：即使你使用的是 React [lazy](https://react.dev/reference/react/lazy)，你仍然可以使用命名导出。请在此处[查看示例](https://dev.to/iamandrewluca/react-lazy-without-default-export-4b65)。
+
+## 分类 五、高效的状态管理 🚦
