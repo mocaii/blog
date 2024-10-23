@@ -43,11 +43,9 @@ export default function Post({ markdownContent }: any) {
         const cleanHeader = header.replace(/^##\s+/, "");
         const id = generateUniqueId(cleanHeader);
         const text = cleanHeader;
-        console.log(`Generated TOC item: id="${id}", text="${text}"`);
         return { id, text };
       });
       setToc(toc);
-      console.log(toc);
     } else {
       setToc([]);
     }

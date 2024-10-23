@@ -8,7 +8,6 @@ import { getSortedPosts, SortedPost, getTags } from "@/utils/post";
 export async function getServerSideProps(context: any) {
   const navlist = getTags();
   const posts = getSortedPosts();
-  console.log(posts);
 
   return {
     props: {
