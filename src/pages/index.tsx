@@ -3,11 +3,22 @@ import data from "@/posts/data.json";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import PostList from "@/components/PostList";
-import { getTags } from "@/utils/tool";
+import { getSortedPosts, SortedPost, getTags } from "@/utils/post";
 
-const navlist = getTags();
+export async function getServerSideProps(context: any) {
+  const navlist = getTags();
+  const posts = getSortedPosts();
+  console.log(posts);
 
-export default function Home() {
+  return {
+    props: {
+      navlist: navlist,
+      posts,
+    },
+  };
+}
+
+export default function Home({ navlist, posts }: { navlist: string[]; posts: SortedPost[] }) {
   return (
     <main className={styles.home}>
       <div className="flex pb-5 mb-5 border-b">
@@ -33,7 +44,7 @@ export default function Home() {
           </Link>
         ))}
       </nav>
-      <PostList data={data} />
+      <PostList posts={posts} />
     </main>
   );
 }
