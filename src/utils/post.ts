@@ -26,7 +26,7 @@ export interface SortedPost {
 //第二步：获取每个文件夹下的所有md文件名及其最后修改时间
 // 第三步：输出一个md文件列表数组，每一项包含字段folder,name,lastModified时间，并以lastModified排序
 export const getPostTags = (): Post[] => {
-  const postsDir = path.join(__dirname, "../posts");
+  const postsDir = path.join(process.cwd(), "src", "posts");
   const folders = fs.readdirSync(postsDir);
 
   const posts = folders
