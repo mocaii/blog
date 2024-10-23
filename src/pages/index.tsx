@@ -1,5 +1,5 @@
 import Link from "next/link";
-import data from "@/posts/data.json";
+// import data from "@/posts/data.json";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import PostList from "@/components/PostList";

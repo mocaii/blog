@@ -1,4 +1,4 @@
-import data from "@/posts/data.json";
+// import data from "@/posts/data.json";
 import { getPostTags, Post } from "./post";
 
 export interface PostProps {
@@ -7,8 +7,3 @@ export interface PostProps {
   title: string;
   description: string;
 }
-
-export const getPostListByTag = (tag: string) => {
-  const list = data.filter((item: PostProps) => item.tag === tag);
-  return list;
-};
