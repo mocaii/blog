@@ -64,6 +64,7 @@ export const getPostTags = (): Post[] => {
 //写一个方法将posts里的md文件按最后修改时间输出为一个数组，每个对象包含folder，name,lastModified字段
 export const getSortedPosts = () => {
   const posts = getPostTags();
+  //将posts数组展平，每个文件夹下的md文件都输出为一个对象
   const flattenedPosts = posts.flatMap((post) =>
     post.files.map((file) => ({
       folder: post.folder,
