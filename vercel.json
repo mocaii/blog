@@ -3,5 +3,9 @@
     "deploymentEnabled": {
       "preserveFileTimestamps": true
     }
+  },
+  "github": {
+    "enabled": true,
+    "silent": true
   }
 }
