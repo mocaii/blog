@@ -3,5 +3,8 @@
     "deploymentEnabled": {
       "preserveFileTimestamps": true
     }
+  },
+  "env": {
+    "TZ": "Asia/Shanghai"
   }
 }
