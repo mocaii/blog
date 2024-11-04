@@ -14,7 +14,10 @@ const PostList = ({ posts }: { posts: SortedPost[] }) => {
           <Link href={`/${item.folder}/${item.name}`} className="">
             {item.name}
           </Link>
-          <span className="text-xs text-gray-500 ml-7">{item.date}</span>
+          <span className="text-xs text-gray-500 ml-7">
+            {item.date}
+            {JSON.stringify(item.lastModified)}
+          </span>
         </div>
       ))}
     </section>
