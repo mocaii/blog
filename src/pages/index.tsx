@@ -29,7 +29,7 @@ export default function Home({ navlist, posts }: { navlist: string[]; posts: Sor
           className=""
         />
         <h1 className="ml-5 w-full  font-bold text-left text-4xl md:text-5xl tracking-tighter py-6 overflow-hidden">
-          {`Hi, I'm mocai`}
+          {`Hi, I'm mocai~`}
         </h1>
       </div>
       <nav className="tags flex justify-start flex-wrap mb-20 gap-1">
