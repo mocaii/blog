@@ -39,13 +39,24 @@ export const getPostTags = (): Post[] => {
           .readdirSync(folderPath)
           .filter((file) => path.extname(file).toLowerCase() === ".md")
           .map((file) => {
-            //去除.md后缀
             const name = file.replace(".md", "");
             const filePath = path.join(folderPath, file);
-            const fileStats = fs.statSync(filePath);
+
+            // 尝试从文件名中提取日期（格式：YYYY-MM-DD-title.md）
+            const dateMatch = name.match(/^(\d{4}-\d{2}-\d{2})/);
+            let lastModified;
+
+            if (dateMatch) {
+              lastModified = new Date(dateMatch[1]);
+            } else {
+              // 如果文件名中没有日期，则使用文件系统的修改时间
+              const fileStats = fs.statSync(filePath);
+              lastModified = fileStats.mtime;
+            }
+
             return {
               name: name,
-              lastModified: fileStats.mtime,
+              lastModified: lastModified,
             };
           });
 
