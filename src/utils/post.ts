@@ -41,18 +41,16 @@ export const getPostTags = (): Post[] => {
           .map((file) => {
             const name = file.replace(".md", "");
             const filePath = path.join(folderPath, file);
+            const fileStats = fs.statSync(filePath);
 
-            // 尝试从文件名中提取日期（格式：YYYY-MM-DD-title.md）
-            const dateMatch = name.match(/^(\d{4}-\d{2}-\d{2})/);
-            let lastModified;
+            // 使用 mtime 和 birthtime 中的较晚时间
+            const lastModified = new Date(
+              Math.max(fileStats.mtime.getTime(), fileStats.birthtime.getTime())
+            );
 
-            if (dateMatch) {
-              lastModified = new Date(dateMatch[1]);
-            } else {
-              // 如果文件名中没有日期，则使用文件系统的修改时间
-              const fileStats = fs.statSync(filePath);
-              lastModified = fileStats.mtime;
-            }
+            console.log(
+              `File: ${file}, mtime: ${fileStats.mtime}, birthtime: ${fileStats.birthtime}, chosen: ${lastModified}`
+            ); // 调试日志
 
             return {
               name: name,

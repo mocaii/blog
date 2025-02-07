@@ -3,6 +3,7 @@
 ## AIGC 知识集合
 
 - [AIGC 知识精华](https://haojiyou.feishu.cn/wiki/RtyNwbtgmi2zQEkQRyucoqRDnmh)
+- [百炼平台实践教程](https://help.aliyun.com/zh/model-studio/use-cases/)
 
 ## AI 视频
 
