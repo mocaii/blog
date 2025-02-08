@@ -1,3 +1,8 @@
+---
+title: JavaScript包管理器：npm、yarn与pnpm
+date: '2024-04-26T11:12:48.144Z'
+lastModified: '2024-04-26T11:12:48.144Z'
+---
 # JavaScript 包管理器：npm、yarn 与 pnpm
 
 在 JavaScript 开发领域，高效的依赖管理是构建高质量项目的重要一环。npm（Node Package Manager）、Yarn 以及 pnpm 作为当前主流的包管理工具，各自以其独特的特性和优势服务于广大开发者。本文将对这三者进行深入分析，探讨其核心功能、性能表现、协作模式以及适用场景，旨在帮助开发者更好地理解并根据项目需求做出合适的选择。

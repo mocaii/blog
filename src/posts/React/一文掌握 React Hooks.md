@@ -1,3 +1,8 @@
+---
+title: 一文掌握 React Hooks
+date: '2024-04-10T10:53:30.508Z'
+lastModified: '2024-04-10T10:53:30.508Z'
+---
 # 一文掌握 React Hooks
 
 Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。原理是：闭包+链表

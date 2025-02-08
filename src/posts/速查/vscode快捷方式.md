@@ -1,3 +1,8 @@
+---
+title: Vscode快捷方式
+date: '2024-04-28T10:59:47.216Z'
+lastModified: '2024-04-28T10:59:47.216Z'
+---
 ### vscode 快捷键
 
 - `option + 上/下 （复制按住 shift）`：行上下移动/复制

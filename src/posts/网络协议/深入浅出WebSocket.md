@@ -1,3 +1,8 @@
+---
+title: 深入浅出WebSocket
+date: '2024-04-10T02:13:12.845Z'
+lastModified: '2024-04-10T02:13:12.845Z'
+---
 # 深入浅出 WebSocket
 
 ## 1. 引言

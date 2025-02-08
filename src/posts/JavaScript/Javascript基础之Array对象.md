@@ -1,3 +1,8 @@
+---
+title: Javascript基础之Array对象
+date: '2024-04-11T19:37:41.755Z'
+lastModified: '2024-04-11T19:37:41.755Z'
+---
 # Javascript 基础之 Array 对象
 
 Array 对象支持在单个变量名下存储多个元素，并具有执行常见数组操作的成员。[参考文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)

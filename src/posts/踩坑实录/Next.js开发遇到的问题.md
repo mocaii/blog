@@ -1,3 +1,8 @@
+---
+title: Next.js开发遇到的问题
+date: '2024-10-23T07:42:27.740Z'
+lastModified: '2024-10-23T07:42:27.740Z'
+---
 # Next.js 开发遇到的问题
 
 ## 1. 报错`Can't resolve 'fs'`

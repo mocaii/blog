@@ -1,3 +1,8 @@
+---
+title: CSS属性一行垂直居中
+date: '2024-08-23T08:30:28.652Z'
+lastModified: '2024-08-23T08:30:28.652Z'
+---
 # CSS 属性一行垂直居中
 
 [原文：CSS finally adds vertical centering in 2024.](https://build-your-own.org/blog/20240813_css_vertical_center/)CSS 终于在 2024 年增加了 verticalcentering

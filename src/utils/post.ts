@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import matter from "gray-matter";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,8 @@ export interface Post {
 export interface File {
   name: string;
   lastModified: Date;
+  title: string | undefined;
+  date: string | undefined;
 }
 
 export interface SortedPost {
@@ -41,20 +44,28 @@ export const getPostTags = (): Post[] => {
           .map((file) => {
             const name = file.replace(".md", "");
             const filePath = path.join(folderPath, file);
-            const fileStats = fs.statSync(filePath);
 
-            // 使用 mtime 和 birthtime 中的较晚时间
-            const lastModified = new Date(
-              Math.max(fileStats.mtime.getTime(), fileStats.birthtime.getTime())
-            );
+            // 读取文件内容和 frontmatter
+            const fileContent = fs.readFileSync(filePath, "utf-8");
+            const { data: frontmatter } = matter(fileContent);
 
-            console.log(
-              `File: ${file}, mtime: ${fileStats.mtime}, birthtime: ${fileStats.birthtime}, chosen: ${lastModified}`
-            ); // 调试日志
+            // 优先使用 frontmatter 中的 lastModified，如果没有则使用 date，
+            // 如果 date 也没有则使用文件系统时间
+            let lastModified: Date;
+            if (frontmatter.lastModified) {
+              lastModified = new Date(frontmatter.lastModified);
+            } else if (frontmatter.date) {
+              lastModified = new Date(frontmatter.date);
+            } else {
+              const fileStats = fs.statSync(filePath);
+              lastModified = fileStats.mtime;
+            }
 
             return {
               name: name,
               lastModified: lastModified,
+              title: frontmatter.title,
+              date: frontmatter.date,
             };
           });
 

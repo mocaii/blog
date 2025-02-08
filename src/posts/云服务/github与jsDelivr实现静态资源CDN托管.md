@@ -1,3 +1,8 @@
+---
+title: Github与jsDelivr实现静态资源CDN托管
+date: '2024-09-01T11:41:12.448Z'
+lastModified: '2024-09-01T11:41:12.448Z'
+---
 # github 与 jsDelivr 实现静态资源 CDN 托管
 
 ## 操作步骤
