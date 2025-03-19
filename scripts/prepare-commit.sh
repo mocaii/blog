@@ -1,4 +1,4 @@
 #!/bin/sh
-. ~/.zshrc  # or . ~/.bash_profile if you use bash
+export PATH="/usr/local/bin/node:$PATH"
 node scripts/updateFrontmatter.js
-git add src/posts/**/*.md 
+git add src/posts/**/*.md

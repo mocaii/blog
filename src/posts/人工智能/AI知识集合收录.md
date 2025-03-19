@@ -17,3 +17,13 @@ lastModified: '2025-02-07T12:29:12.030Z'
 ## AI 绘画
 
 - [AI 绘画学习知识库](https://haojiyou.feishu.cn/wiki/O8SVw43Mlijd0Okw4LNcp2RenKc)
+
+## AI知识入门
+
+- [【小白入门篇6】常识|怎么计算模型需要的资源](https://mp.weixin.qq.com/s/H7JOqj7CJbmt0iG-FC2U2w)
+
+## AI Agent
+
+- [微软：给初学者的AI Agent课程](https://github.com/microsoft/ai-agents-for-beginners/tree/main)
+- [微软：AI Agent设计模式与AutoGen](https://www.deeplearning.ai/short-courses/ai-agentic-design-patterns-with-autogen/?utm_source=www.turingpost.com&utm_medium=referral&utm_campaign=8-free-sources-to-master-building-ai-agents)
+- [Hugging Face：AI Agents课程](https://huggingface.co/learn/agents-course/en/unit0/introduction)
