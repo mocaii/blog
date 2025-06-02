@@ -22,3 +22,18 @@ lastModified: '2025-02-07T11:49:00.045Z'
 - [minimind](https://github.com/jingyaogong/minimind):本开源项目旨在完全从 0 开始，最快仅用 3 小时！即可训练出仅为 26.88M 大小的微型语言模型 MiniMind。
 - [RAGFlow](https://github.com/infiniflow/ragflow):RAGFlow 是一个基于深度文档理解的开放源代码 RAG（检索增强生成）引擎。
 - [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui):使用 Gradio 库实现的 Stable Diffusion 网页界面。
+- [ai-chatbot](https://github.com/vercel/ai-chatbot):一个功能齐全、可定制的Next.js AI聊天机器人，由Vercel构建
+- [cursor-free-vip](https://github.com/yeongpin/cursor-free-vip):自动注册 Cursor Ai ，自动重置机器ID ， 免费升级使用Pro功能
+- [KrillinAI](https://github.com/krillinai/KrillinAI):基于AI大模型的视频翻译和配音工具，专业级翻译，一键部署全流程，可以生成适配抖音，小红书，哔哩哔哩，视频号，TikTok，Youtube Shorts等形态的内容
+- [Awesome-Dify-Workflow](https://github.com/svcvit/Awesome-Dify-Workflow):分享一些好用的 Dify DSL 工作流程，自用、学习两相宜。 Sharing some Dify workflows.
+- [markitdown](https://github.com/microsoft/markitdown):支持将任多种类型的文件转为markdown
+- [FunASR](https://github.com/modelscope/FunASR):一个基本的端到端语音识别工具包和开源SOTA预训练模型，支持语音识别、语音活动检测、文本后处理等。
+- [system-prompts-and-models-of-ai-tools](https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools):关于FULL v0, Cursor, Manus, Same.dev, Lovable, Devin, Replit Agent, Windsurf Agent & VSCode Agent（以及其他开源项目）系统提示、工具和AI模型。
+- [GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS):1分钟语音数据也可以用来训练一个好的TTS模型！（少样本语音克隆）
+- [Deep-Live-Cam](https://github.com/hacksider/Deep-Live-Cam):实时换脸和仅凭一张图片一键视频深度伪造
+- [LTX-Video](https://github.com/Lightricks/LTX-Video?tab=readme-ov-file#quick-start-guide):LTX-Video 是首个基于 DiT 的视频生成模型，能够实时生成高质量视频。
+- [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)
+
+## MCP
+
+- [MarkItDown-MCP](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp):支持将任多种类型的文件转为markdown
