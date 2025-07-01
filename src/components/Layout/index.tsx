@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
 import type { Metadata } from "next";
+import Head from "next/head";
 import BackToTop from "./BackToTop";
 import Header from "./Header";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "灵感漫游记",
   description: "资源收集，计划管理，学习笔记，个人博客",
 };
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     let theme = localStorage.getItem("blog-theme");
     if (!theme) {

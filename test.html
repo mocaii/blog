@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple WWDC2025 发布会回顾</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <style>
+      body {
+        font-family: "Inter", "Noto Sans SC", sans-serif;
+        background-image: url("https://i.ibb.co/xtN61cRf/Comfy-UI-Output-4-1.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        color: white;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+      }
+
+      /* Apple Gradient Text */
+      .apple-gradient {
+        background: linear-gradient(90deg, #fdc5f5, #b8c0ff, #8aaae5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+
+      /* Highlight Gradient with Transparency */
+      .highlight-gradient-pink {
+        background: linear-gradient(90deg, rgba(253, 197, 245, 0.7), rgba(253, 197, 245, 0));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .highlight-gradient-blue {
+        background: linear-gradient(90deg, rgba(184, 192, 255, 0.7), rgba(184, 192, 255, 0));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+
+      /* Bento Grid Layout */
+      .bento-grid {
+        display: grid;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 1920px; /* Responsive up to 1920px */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-auto-rows: minmax(min-content, max-content);
+      }
+
+      /* Card Styles (liquidGlass) */
+      /* 容器 */
+      .liquidGlass-wrapper {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        padding: 0.6rem;
+        border-radius: 2rem;
+        cursor: pointer;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+        background: rgba(255, 255, 255, 0.1); /* Ensure slight background for glass effect */
+        align-items: center;
+        justify-content: center;
+      }
+      /* Hover效果 */
+      .liquidGlass-wrapper:hover {
+        padding: 0.8rem;
+        border-radius: 2.5rem;
+      }
+      /* 扭曲层 */
+      .liquidGlass-effect {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        backdrop-filter: blur(3px);
+        filter: url(#glass-distortion);
+      }
+      /* 色调层 */
+      .liquidGlass-tint {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.25);
+      }
+      /* 光泽层 */
+      .liquidGlass-shine {
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+        box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+          inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+      }
+      /* 内容层 */
+      .liquidGlass-text {
+        position: relative;
+        z-index: 3;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+        width: 100%; /* Ensure content fills available space */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .liquidGlass-wrapper:hover .liquidGlass-text {
+        transform: scale(0.95);
+      }
+      /* 子项样式 */
+      .menu-item {
+        padding: 0.4rem 0.6rem;
+        border-radius: 0.8rem;
+        transition: all 0.1s ease-in;
+      }
+      .menu-item:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+      }
+
+      /* Specific grid area sizing */
+      .grid-item-wide {
+        grid-column: span 2;
+      }
+      .grid-item-tall {
+        grid-row: span 2;
+      }
+      .grid-item-large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      /* Custom chart styling */
+      .chart-container {
+        width: 100%;
+        height: 300px; /* Adjust height as needed */
+      }
+      @media (min-width: 1024px) {
+        .grid-item-large {
+          min-height: 400px; /* Ensure a minimum height for large items on larger screens */
+        }
+      }
+      @media (min-width: 768px) {
+        .bento-grid {
+          grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+        }
+      }
+      @media (min-width: 1280px) {
+        .bento-grid {
+          grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+        }
+      }
+      @media (min-width: 1920px) {
+        .bento-grid {
+          grid-template-columns: repeat(5, 1fr); /* 5 columns for extra large screens */
+        }
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <filter id="glass-distortion">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.01 0.05"
+            numOctaves="1"
+            result="noise"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="10"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <div class="bento-grid mx-auto p-4">
+      <div class="liquidGlass-wrapper grid-item-large p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text flex flex-col justify-center items-center">
+          <h1 class="text-7xl lg:text-8xl font-black mb-4 apple-gradient leading-tight">
+            WWDC<br class="md:hidden" />2025
+          </h1>
+          <p class="text-lg lg:text-xl font-medium text-white opacity-80 mt-2">
+            Apple Worldwide Developers Conference
+          </p>
+          <p class="text-sm opacity-70">Unveiling the Future</p>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text">
+          <i class="fas fa-calendar-alt text-5xl mb-4 text-white opacity-70"></i>
+          <h2 class="text-5xl font-bold mb-2 highlight-gradient-pink">JUN. 10</h2>
+          <p class="text-xl font-bold">主题演讲</p>
+          <p class="text-sm opacity-70">Keynote Address</p>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text">
+          <i class="fas fa-brain text-5xl mb-4 text-white opacity-70"></i>
+          <h2 class="text-xl font-bold mb-2">AI 新纪元</h2>
+          <p class="text-4xl lg:text-5xl font-black apple-gradient">AI ON DEVICE</p>
+          <p class="text-sm opacity-70">Beyond the Cloud</p>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper grid-item-wide p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text flex-row items-center justify-around flex-wrap">
+          <div class="flex flex-col items-center p-2">
+            <i class="fab fa-apple text-4xl mb-2 text-white opacity-70"></i>
+            <h3 class="text-3xl font-bold highlight-gradient-blue">iOS 19</h3>
+            <p class="text-sm opacity-70">iPhone Evolution</p>
+          </div>
+          <div class="flex flex-col items-center p-2">
+            <i class="fas fa-desktop text-4xl mb-2 text-white opacity-70"></i>
+            <h3 class="text-3xl font-bold highlight-gradient-blue">macOS Lynx</h3>
+            <p class="text-sm opacity-70">Desktop Power</p>
+          </div>
+          <div class="flex flex-col items-center p-2">
+            <i class="fas fa-tv text-4xl mb-2 text-white opacity-70"></i>
+            <h3 class="text-3xl font-bold highlight-gradient-blue">tvOS 19</h3>
+            <p class="text-sm opacity-70">Entertainment Hub</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text">
+          <i class="fas fa-code text-5xl mb-4 text-white opacity-70"></i>
+          <h2 class="text-xl font-bold mb-2">开发者工具</h2>
+          <p class="text-4xl lg:text-5xl font-black apple-gradient">VisionOS 2</p>
+          <p class="text-sm opacity-70">Spatial Computing</p>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper grid-item-wide p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text flex flex-col items-start p-4">
+          <h2 class="text-xl font-bold mb-4 highlight-gradient-pink">新功能采纳率</h2>
+          <div id="feature-adoption-chart" class="chart-container"></div>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text">
+          <i class="fas fa-microchip text-5xl mb-4 text-white opacity-70"></i>
+          <h2 class="text-xl font-bold mb-2">神秘硬件</h2>
+          <p class="text-4xl lg:text-5xl font-black apple-gradient">ULTRA CHIP</p>
+          <p class="text-sm opacity-70">Unleash the Power</p>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text">
+          <i class="fas fa-users text-5xl mb-4 text-white opacity-70"></i>
+          <h2 class="text-xl font-bold mb-2">全球开发者</h2>
+          <p class="text-4xl lg:text-5xl font-black highlight-gradient-blue">5000+</p>
+          <p class="text-sm opacity-70">Engineers & Creatives</p>
+        </div>
+      </div>
+
+      <div class="liquidGlass-wrapper p-6">
+        <div class="liquidGlass-effect"></div>
+        <div class="liquidGlass-tint"></div>
+        <div class="liquidGlass-shine"></div>
+        <div class="liquidGlass-text">
+          <i class="fas fa-leaf text-5xl mb-4 text-white opacity-70"></i>
+          <h2 class="text-xl font-bold mb-2">绿色承诺</h2>
+          <p class="text-4xl lg:text-5xl font-black apple-gradient">CARBON NEUTRAL</p>
+          <p class="text-sm opacity-70">Our Planet, Our Priority</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+    <script>
+      // Initialize ECharts instance
+      var myChart = echarts.init(document.getElementById("feature-adoption-chart"));
+
+      // Chart options
+      var option = {
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        grid: {
+          left: "3%",
+          right: "4%",
+          bottom: "3%",
+          containLabel: true,
+        },
+        xAxis: {
+          type: "category",
+          data: ["AI Assistant", "Universal Control 2", "Dynamic Island Pro", "VisionOS Apps"],
+          axisLabel: {
+            color: "#FFF",
+            fontSize: 10, // Adjust font size for better fit
+          },
+          axisLine: {
+            lineStyle: {
+              color: "rgba(255, 255, 255, 0.5)",
+            },
+          },
+        },
+        yAxis: {
+          type: "value",
+          name: "Adoption Rate (%)",
+          nameTextStyle: {
+            color: "#FFF",
+          },
+          axisLabel: {
+            color: "#FFF",
+          },
+          axisLine: {
+            lineStyle: {
+              color: "rgba(255, 255, 255, 0.5)",
+            },
+          },
+          splitLine: {
+            lineStyle: {
+              color: "rgba(255, 255, 255, 0.2)",
+            },
+          },
+        },
+        series: [
+          {
+            name: "Adoption Rate",
+            type: "bar",
+            data: [85, 70, 92, 65],
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: "#b8c0ff" }, // Light Blue
+                { offset: 1, color: "#8aaae5" }, // Darker Blue
+              ]),
+            },
+            label: {
+              show: true,
+              position: "top",
+              formatter: "{c}%",
+              color: "#FFF",
+            },
+          },
+        ],
+      };
+
+      // Use the defined options
+      myChart.setOption(option);
+
+      // Responsive chart on window resize
+      window.addEventListener("resize", function () {
+        myChart.resize();
+      });
+    </script>
+  </body>
+</html>

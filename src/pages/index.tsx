@@ -1,9 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 // import data from "@/posts/data.json";
-import Image from "next/image";
-import styles from "./index.module.scss";
 import PostList from "@/components/PostList";
-import { getSortedPosts, SortedPost, getTags } from "@/utils/post";
+import { getSortedPosts, getTags, SortedPost } from "@/utils/post";
+import styles from "./index.module.scss";
 
 export async function getServerSideProps(context: any) {
   const navlist = getTags();
@@ -11,7 +11,7 @@ export async function getServerSideProps(context: any) {
 
   return {
     props: {
-      navlist: navlist,
+      navlist,
       posts,
     },
   };
@@ -28,15 +28,15 @@ export default function Home({ navlist, posts }: { navlist: string[]; posts: Sor
           alt="Picture of the author"
           className=""
         />
-        <h1 className="ml-5 w-full  font-bold text-left text-4xl md:text-5xl tracking-tighter py-6 overflow-hidden">
+        <h1 className="ml-5 w-full font-bold text-left text-4xl md:text-5xl tracking-tighter py-6 overflow-hidden">
           {`Hi, I'm mocai～🥰`}
         </h1>
       </div>
       <nav className="tags flex justify-start flex-wrap mb-20 gap-1">
-        {navlist.map((item, index) => (
+        {navlist.map((item) => (
           <Link
-            href={`/${item}`}
             key={item}
+            href={`/${item}`}
             className="bg-black dark:bg-white text-white dark:text-black block p-2 no-underline text-sm"
           >
             {item}
